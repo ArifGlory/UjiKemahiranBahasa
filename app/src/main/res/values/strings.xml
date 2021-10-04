@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Uji Kemahiran Bahasa</string>
+    <string name="app_name">Uji Kemahiran Bahasa Indonesia</string>
+    <string name="penjelasan_listening">Pada seksi ini, anda diminta untuk mendengarkan dahulu sebuah dialog, kemudian menjawab beberapa pertanyaan berdasarkan dialog tersebut.</string>
 </resources>
