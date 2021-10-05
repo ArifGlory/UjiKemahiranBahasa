@@ -16,44 +16,36 @@ import java.util.List;
  */
 public class DBAdapter extends SQLiteAssetHelper {
 
-    private static final String DB_NAME                 = "db_skbpenyuluh_v3";
-    private static final int        DB_VER              = 1;
-    public static final String TABLE_SOAL               = "tb_soal_paket_1";
-    public static final String TABLE_SOAL_2             = "tb_soal_paket_2";
-    public static final String TABLE_SOAL_3             = "tb_soal_paket_3";
-    public static final String TABLE_SOAL_4             = "tb_soal_paket_4";
-    public static final String TABLE_SOAL_5             = "tb_soal_paket_5";
-    public static final String TABLE_SOAL_6             = "tb_soal_paket_6";
-    public static final String TABLE_SOAL_7             = "tb_soal_paket_7";
-    public static final String TABLE_SOAL_8             = "tb_soal_paket_8";
-    public static final String TABLE_SOAL_9             = "tb_soal_paket_9";
-    public static final String TABLE_SOAL_10             = "tb_soal_paket_10";
-    public static final String TABLE_HISTORY            = "tb_history";
+    private static final String DB_NAME = "db_uji_kemahiran";
+    private static final int DB_VER = 1;
+    public static final String TABLE_MENDENGARKAN = "seksi_mendengarkan";
+    public static final String TABLE_MEMBACA = "seksi_membaca";
+    public static final String TABLE_KAIDAH = "seksi_merespons_kaidah";
+    public static final String TABLE_HISTORY = "tb_history";
 
-    public static final String COL_SOAL_ID             = "id";
-    public static final String COL_SOAL_SOAL           = "soal";
-    public static final String COL_SOAL_JAWABAN_A      = "jawaban_a";
-    public static final String COL_SOAL_JAWABAN_B      = "jawaban_b";
-    public static final String COL_SOAL_JAWABAN_C      = "jawaban_c";
-    public static final String COL_SOAL_JAWABAN_D      = "jawaban_d";
-    public static final String COL_SOAL_JAWABAN_BENAR  = "jawaban_benar";
+    public static final String COL_MENDENGARKAN_ID = "id_soal";
+    public static final String COL_MENDENGARKAN_DIALOG = "dialog";
+    public static final String COL_MENDENGARKAN_GAMBAR = "gambar";
+    public static final String COL_MENDENGARKAN_SOAL = "soal";
+    public static final String COL_MENDENGARKAN_JAWABAN_A = "jawaban_a";
+    public static final String COL_MENDENGARKAN_JAWABAN_B = "jawaban_b";
+    public static final String COL_MENDENGARKAN_JAWABAN_C = "jawaban_c";
+    public static final String COL_MENDENGARKAN_JAWABAN_D = "jawaban_d";
+    public static final String COL_MENDENGARKAN_JAWABAN_BENAR = "jawaban_benar";
 
-    public static final String COL_HISTORI_NAMA_PAKET      = "nama_paket_soal";
-    public static final String COL_HISTORI_SKOR            = "skor";
-    public static final String COL_HISTORI_WAKTU           = "waktu";
 
-    public static final String TAG_INSERT  = "insertDB";
+    public static final String TAG_INSERT = "insertDB";
 
-    public static DBAdapter        dbInstance;
+    public static DBAdapter dbInstance;
     public static SQLiteDatabase db;
 
-    String[] namaLevel  =   {"Paket Soal 1","Paket Soal 2","Paket Soal 3","Paket Soal 4","Paket Soal 5",
-            "Paket Soal 6","Paket Soal 7","Paket Soal 8","Paket Soal 9","Paket Soal 10"};
-
+    String[] namaLevel = {"Paket Soal 1", "Paket Soal 2", "Paket Soal 3", "Paket Soal 4", "Paket Soal 5",
+            "Paket Soal 6", "Paket Soal 7", "Paket Soal 8", "Paket Soal 9", "Paket Soal 10"};
 
 
     /**
      * private Constructor, untuk menggunakan kelas ini gunakan getInstance()
+     *
      * @param context
      */
 
@@ -63,9 +55,9 @@ public class DBAdapter extends SQLiteAssetHelper {
     }
 
 
-    public  static synchronized DBAdapter getInstance(Context context){
+    public static synchronized DBAdapter getInstance(Context context) {
 
-        if (dbInstance == null){
+        if (dbInstance == null) {
             dbInstance = new DBAdapter(context.getApplicationContext());
             db = dbInstance.getReadableDatabase();
         }
@@ -73,7 +65,7 @@ public class DBAdapter extends SQLiteAssetHelper {
         return dbInstance;
     }
 
-    public SQLiteDatabase ambilDB(){
+    public SQLiteDatabase ambilDB() {
         db = this.getWritableDatabase();
         return db;
 
@@ -93,12 +85,11 @@ public class DBAdapter extends SQLiteAssetHelper {
     }*/
 
 
-
     @Override
-    public synchronized void close(){
+    public synchronized void close() {
 
         super.close();
-        if (dbInstance!=null){
+        if (dbInstance != null) {
 
             dbInstance.close();
         }
@@ -194,7 +185,7 @@ public class DBAdapter extends SQLiteAssetHelper {
         return listHistory;
     }*/
 
-    public long insertHistory(String namaPaket, String skor,String waktu) {
+    public long insertHistory(String namaPaket, String skor, String waktu) {
         final SQLiteDatabase db = this.getWritableDatabase();
         ContentValues initialValues = new ContentValues();
         long retval = 0;
