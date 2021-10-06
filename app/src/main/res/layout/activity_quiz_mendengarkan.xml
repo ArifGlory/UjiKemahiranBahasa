@@ -49,11 +49,11 @@
 
 
                     <TextView
-                        android:id="@+id/tvInfoDialog"
+                        android:id="@+id/tvInfoSoal"
                         android:layout_width="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
-                        android:text="Informasi Dialog"
+                        android:text="Informasi Soal"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="12sp"

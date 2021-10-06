@@ -1,6 +1,7 @@
 package com.tapisdev.ujikemahiranbahasa.activity
 
 import android.animation.ObjectAnimator
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.media.AudioManager
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
+import android.view.Window
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.ImageView
@@ -36,6 +38,7 @@ class QuizMendengarkanActivity : BaseActivity() {
     var TAG_MENDENGAR = "seksiMendengarkan"
     var TAG_CHECK_ANSWER = "cekAnswer"
     var TAG_CHECK_AUDIO = "cekAudio"
+    var textInfoAudio = ""
     var getAnswer = ""
     var currentSoal = 0
     var countNextSoal = 0
@@ -47,7 +50,7 @@ class QuizMendengarkanActivity : BaseActivity() {
     var mPlayer : MediaPlayer = MediaPlayer()
     lateinit var mAnimation : ObjectAnimator
 
-    lateinit var tvInfoDialog : TextView
+    lateinit var tvInfoSoal : TextView
     lateinit var imgPlay : ImageView
     lateinit var btnJwbA : Button
     lateinit var btnJwbB : Button
@@ -79,16 +82,63 @@ class QuizMendengarkanActivity : BaseActivity() {
 
     fun startQuiz(){
         setupProgressBarAnimation()
+        showDialogAudio()
     }
 
     fun setView(){
-        tvInfoDialog = findViewById(R.id.tvInfoDialog)
+        tvInfoSoal = findViewById(R.id.tvInfoSoal)
         imgPlay = findViewById(R.id.imgPlay)
         btnJwbA = findViewById(R.id.btnJwbA)
         btnJwbB = findViewById(R.id.btnJwbB)
         btnJwbC = findViewById(R.id.btnJwbC)
         btnJwbD = findViewById(R.id.btnJwbD)
         progress_bar = findViewById(R.id.progress_bar)
+    }
+
+    fun showDialogAudio(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.dialog_playing_audio)
+
+        val btnEndAudio = dialog.findViewById(R.id.btnEndAudio) as Button
+        val tvInfoAudio = dialog.findViewById(R.id.tvInfoAudio) as TextView
+
+        setupAudio()
+        setupInfoAudio()
+
+        tvInfoAudio.setText(textInfoAudio)
+        btnEndAudio.setOnClickListener {
+            mPlayer.stop()
+            mPlayer.reset()
+            dialog.dismiss()
+
+            setupSoal()
+        }
+
+        dialog.show()
+    }
+
+    fun setupInfoAudio(){
+        var activeSoal = currentSoal + 1
+
+        if ((1..5).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 1 - 5"
+        }else if ((6..10).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 6 - 10"
+        }else if ((11..15).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 11 - 15"
+        }else if ((16..20).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 16 - 20"
+        }else if ((21..25).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 21 - 25"
+        }else if ((26..30).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 26 - 30"
+        }else if ((31..35).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 31 - 35"
+        }else if ((36..40).contains(activeSoal)){
+            textInfoAudio = "Audio berikut ini adalah untuk Soal 36 - 40"
+        }
     }
 
     fun setupProgressBarAnimation(){
@@ -99,8 +149,8 @@ class QuizMendengarkanActivity : BaseActivity() {
     }
 
     fun setupSoal(){
-        setupAudio()
         enableAllButton()
+        tvInfoSoal.setText("Soal ke - "+currentSoal+1)
 
         btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
         btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)

@@ -10,13 +10,14 @@
         android:id="@+id/animation_view"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="40dp"
-        android:layout_margin="15dp"
         android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        app:lottie_rawRes="@raw/listening"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_autoPlay="true" />
+        app:lottie_rawRes="@raw/listening" />
 
     <LinearLayout
         android:layout_width="match_parent"
