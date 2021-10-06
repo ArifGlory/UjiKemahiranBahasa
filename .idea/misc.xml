@@ -5,9 +5,13 @@
       <map>
         <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/drawable/button_background_blue.xml" value="0.2703125" />
         <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/drawable/button_background_white.xml" value="0.2703125" />
+        <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/drawable/button_disabled.xml" value="0.2703125" />
+        <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/drawable/button_enabled.xml" value="0.2703125" />
+        <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/drawable/button_ingame.xml" value="0.2703125" />
         <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/drawable/ic_add_img.xml" value="0.2703125" />
         <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/layout/activity_landing_listening.xml" value="0.22735507246376813" />
         <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/layout/activity_main.xml" value="0.22735507246376813" />
+        <entry key="..\:/Arif Glory/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/layout/activity_quiz_mendengarkan.xml" value="0.264" />
         <entry key="..\:/Project/AndroidProjects/UjiKemahiranBahasa/app/src/main/res/layout/activity_landing_listening.xml" value="0.36666666666666664" />
       </map>
     </option>

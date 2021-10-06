@@ -15,7 +15,8 @@
         tools:replace="android:icon">
         <activity
             android:name=".activity.QuizMendengarkanActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
         <activity
             android:name=".activity.LandingListeningActivity"
             android:exported="true"
