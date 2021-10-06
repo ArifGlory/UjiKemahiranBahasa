@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical"
     app:ignore="NamespaceTypo">
@@ -13,13 +14,14 @@
         android:text="Informasi Audio"
         android:layout_gravity="center_horizontal"
         android:textStyle="bold"
+        android:textSize="12sp"
         android:id="@+id/tvInfoAudio"
         android:textColor="@color/colorAccent2"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
         android:layout_marginTop="10dp" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
+        android:id="@+id/animation_view_audio"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_centerInParent="true"

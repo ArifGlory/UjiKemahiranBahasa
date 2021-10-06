@@ -24,6 +24,10 @@ import com.tapisdev.ujikemahiranbahasa.model.SeksiMendengarkan
 import com.tapisdev.ujikemahiranbahasa.utility.DBAdapter
 import es.dmoral.toasty.Toasty
 import java.util.ArrayList
+import android.content.res.AssetFileDescriptor
+import android.view.View
+import com.airbnb.lottie.LottieAnimationView
+
 
 class QuizMendengarkanActivity : BaseActivity() {
 
@@ -101,11 +105,19 @@ class QuizMendengarkanActivity : BaseActivity() {
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.dialog_playing_audio)
 
-        val btnEndAudio = dialog.findViewById(R.id.btnEndAudio) as Button
-        val tvInfoAudio = dialog.findViewById(R.id.tvInfoAudio) as TextView
+        var btnEndAudio = dialog.findViewById(R.id.btnEndAudio) as Button
+        var tvInfoAudio = dialog.findViewById(R.id.tvInfoAudio) as TextView
+        var animation_view_audio = dialog.findViewById(R.id.animation_view_audio) as LottieAnimationView
+
 
         setupAudio()
         setupInfoAudio()
+
+
+        animation_view_audio.visibility = View.VISIBLE
+        animation_view_audio.setAnimation(R.raw.listening)
+        animation_view_audio.playAnimation()
+        animation_view_audio.loop(true)
 
         tvInfoAudio.setText(textInfoAudio)
         btnEndAudio.setOnClickListener {
@@ -167,9 +179,10 @@ class QuizMendengarkanActivity : BaseActivity() {
         }
 
         Log.d(TAG_CHECK_AUDIO,"audio nya : "+listSoal.get(currentSoal).dialog)
-        mPlayer = MediaPlayer.create(this, setMusic(listSoal.get(currentSoal).dialog))
-        /*mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
-        mPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength())*/
+
+        var afd = assets.openFd(listSoal.get(currentSoal).dialog)
+        mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        mPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength())
         mPlayer.prepare()
         mPlayer.start()
 
