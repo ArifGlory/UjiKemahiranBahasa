@@ -26,7 +26,9 @@ import es.dmoral.toasty.Toasty
 import java.util.ArrayList
 import android.content.res.AssetFileDescriptor
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.airbnb.lottie.LottieAnimationView
+import com.tapisdev.ujikemahiranbahasa.MainActivity
 
 
 class QuizMendengarkanActivity : BaseActivity() {
@@ -102,7 +104,7 @@ class QuizMendengarkanActivity : BaseActivity() {
     fun showDialogAudio(){
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_playing_audio)
 
         var btnEndAudio = dialog.findViewById(R.id.btnEndAudio) as Button
@@ -170,6 +172,13 @@ class QuizMendengarkanActivity : BaseActivity() {
         btnJwbD.setText(listSoal.get(currentSoal).jawaban_d)
     }
 
+    fun nextSoal(){
+        var activeSoal = currentSoal + 1
+        if (activeSoal % 5 == 0){
+            showDialogAudio()
+        }
+    }
+
     fun setupAudio(){
         if (mPlayer != null) {
             if (mPlayer.isPlaying()) {
@@ -227,6 +236,31 @@ class QuizMendengarkanActivity : BaseActivity() {
              Log.d(TAG_MENDENGAR,"index ke $i : "+quiz)
         }
 
+    }
+
+    override fun onBackPressed() {
+        val builder =
+            AlertDialog.Builder(this)
+        builder.setMessage("Apakah anda ingin keluar dari game yang sedang berlangsung ?")
+        builder.setCancelable(false)
+
+        listener = DialogInterface.OnClickListener { dialog, which ->
+            if (which == DialogInterface.BUTTON_POSITIVE) {
+                mAnimation.end()
+                if (mPlayer.isPlaying()) {
+                    mPlayer.stop()
+                    mPlayer.reset()
+                }
+
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+            if (which == DialogInterface.BUTTON_NEGATIVE) {
+                dialog.cancel()
+            }
+        }
+        builder.setPositiveButton("Yes", listener)
+        builder.setNegativeButton("No", listener)
+        builder.show()
     }
 
 
