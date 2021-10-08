@@ -7,6 +7,7 @@ import android.os.Parcelable
 import android.util.Log
 import android.widget.Button
 import com.tapisdev.lokamotor.base.BaseActivity
+import com.tapisdev.myapplication.model.SharedVariable
 import com.tapisdev.ujikemahiranbahasa.R
 import com.tapisdev.ujikemahiranbahasa.model.SeksiMendengarkan
 import java.io.Serializable
@@ -29,6 +30,7 @@ class LandingListeningActivity : BaseActivity() {
             //random paket nya dulu
             val randomPaket = (1..2).random()
             Log.d("randomPaket"," : "+randomPaket)
+            SharedVariable.activePaket = randomPaket
 
             val i = Intent(this,QuizMendengarkanActivity::class.java)
            // i.putExtra("sm",sM as Parcelable)

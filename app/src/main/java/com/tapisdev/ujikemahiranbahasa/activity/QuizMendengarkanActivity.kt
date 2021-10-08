@@ -25,6 +25,7 @@ import com.tapisdev.ujikemahiranbahasa.utility.DBAdapter
 import es.dmoral.toasty.Toasty
 import java.util.ArrayList
 import android.content.res.AssetFileDescriptor
+import android.content.res.AssetManager
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.airbnb.lottie.LottieAnimationView
@@ -80,6 +81,23 @@ class QuizMendengarkanActivity : BaseActivity() {
         mDB = DBAdapter.getInstance(this)
         listSoalTemp = mDB!!.getSoalMendengarkan()
         filterSoal(idPaket)
+
+        btnJwbA.setOnClickListener {
+            getAnswer = "A"
+            nextSoal()
+        }
+        btnJwbB.setOnClickListener {
+            getAnswer = "B"
+            nextSoal()
+        }
+        btnJwbC.setOnClickListener {
+            getAnswer = "C"
+            nextSoal()
+        }
+        btnJwbD.setOnClickListener {
+            getAnswer = "D"
+            nextSoal()
+        }
 
 
         disableAllButton()
@@ -164,7 +182,7 @@ class QuizMendengarkanActivity : BaseActivity() {
 
     fun setupSoal(){
         enableAllButton()
-        tvInfoSoal.setText("Soal ke - "+currentSoal+1)
+        tvInfoSoal.setText("Soal ke - "+(currentSoal + 1))
 
         btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
         btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
@@ -173,9 +191,39 @@ class QuizMendengarkanActivity : BaseActivity() {
     }
 
     fun nextSoal(){
-        var activeSoal = currentSoal + 1
-        if (activeSoal % 5 == 0){
-            showDialogAudio()
+        Log.d(TAG_CHECK_ANSWER," Soal : "+listSoal.get(currentSoal).soal)
+        Log.d(TAG_CHECK_ANSWER," getAnswer : "+getAnswer)
+        Log.d(TAG_CHECK_ANSWER," Jawaban benar : "+listSoal.get(currentSoal).jawaban_benar)
+
+        if (getAnswer.equals(listSoal.get(currentSoal).jawaban_benar)){
+            totalSkor  = totalSkor + 1
+        }
+        countNextSoal++
+        currentSoal++
+
+        checkNextOrFinish()
+    }
+
+    fun checkNextOrFinish(){
+        //jika sudah mencapai 40 soal
+        if (countNextSoal < 40){
+            var activeSoal = currentSoal
+            if (activeSoal % 5 == 0){
+                showDialogAudio()
+            }else{
+                setupSoal()
+            }
+
+        }else{
+            mAnimation.end()
+            disableAllButton()
+
+            var skorUser = ""+totalSkor
+            showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+            Log.d(TAG_MENDENGAR,"Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+            /*val i = Intent(this,ResultActivity::class.java)
+            i.putExtra("skor",skorUser)
+            startActivity(i)*/
         }
     }
 
@@ -189,9 +237,12 @@ class QuizMendengarkanActivity : BaseActivity() {
 
         Log.d(TAG_CHECK_AUDIO,"audio nya : "+listSoal.get(currentSoal).dialog)
 
-        var afd = assets.openFd(listSoal.get(currentSoal).dialog)
+        var assetMng : AssetManager = resources.assets
+        var afd2 = assetMng.openFd(listSoal.get(currentSoal).dialog)
+
+      //  var afd = assets.openFd(listSoal.get(currentSoal).dialog)
         mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
-        mPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength())
+        mPlayer.setDataSource(afd2.getFileDescriptor(), afd2.getStartOffset(), afd2.getLength())
         mPlayer.prepare()
         mPlayer.start()
 
@@ -241,7 +292,7 @@ class QuizMendengarkanActivity : BaseActivity() {
     override fun onBackPressed() {
         val builder =
             AlertDialog.Builder(this)
-        builder.setMessage("Apakah anda ingin keluar dari game yang sedang berlangsung ?")
+        builder.setMessage("Apakah anda ingin keluar dari Tes yang sedang berlangsung ?")
         builder.setCancelable(false)
 
         listener = DialogInterface.OnClickListener { dialog, which ->
