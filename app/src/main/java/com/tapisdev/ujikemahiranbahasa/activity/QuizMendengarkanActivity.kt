@@ -182,7 +182,7 @@ class QuizMendengarkanActivity : BaseActivity() {
 
     fun setupSoal(){
         enableAllButton()
-        tvInfoSoal.setText("Soal ke - "+(currentSoal + 1))
+        tvInfoSoal.setText("Soal ke - "+(currentSoal + 1)+" \n"+listSoal.get(currentSoal).soal)
 
         btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
         btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
