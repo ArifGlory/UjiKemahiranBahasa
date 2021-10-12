@@ -235,10 +235,12 @@ class QuizMendengarkanActivity : BaseActivity() {
             }
         }
 
-        Log.d(TAG_CHECK_AUDIO,"audio nya : "+listSoal.get(currentSoal).dialog)
+        var namaAudio = listSoal.get(currentSoal).dialog.trim()
+        Log.d(TAG_CHECK_AUDIO,"audio triimed  : "+namaAudio.length)
+        Log.d(TAG_CHECK_AUDIO,"audio nya : "+listSoal.get(currentSoal).dialog.length)
 
         var assetMng : AssetManager = resources.assets
-        var afd2 = assetMng.openFd(listSoal.get(currentSoal).dialog)
+        var afd2 = assetMng.openFd(namaAudio)
 
       //  var afd = assets.openFd(listSoal.get(currentSoal).dialog)
         mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)

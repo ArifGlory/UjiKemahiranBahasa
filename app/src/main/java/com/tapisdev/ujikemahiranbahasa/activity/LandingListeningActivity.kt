@@ -28,7 +28,7 @@ class LandingListeningActivity : BaseActivity() {
 
         startTesListening.setOnClickListener {
             //random paket nya dulu
-            val randomPaket = (1..2).random()
+            var randomPaket = (1..2).random()
             Log.d("randomPaket"," : "+randomPaket)
             SharedVariable.activePaket = randomPaket
 
