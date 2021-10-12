@@ -14,10 +14,16 @@
         android:theme="@style/Theme.UjiKemahiranBahasa"
         tools:replace="android:icon">
         <activity
+            android:name=".activity.LandingMembacaActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:exported="false" />
+        <activity
             android:name=".activity.QuizMeresponsKaidahActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".activity.LandingMeresponsKaidahActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".activity.QuizMendengarkanActivity"

@@ -48,14 +48,10 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz_merespons_kaidah_dialog)
 
         mDB = DBAdapter.getInstance(this)
         listSoalTemp = mDB!!.getSoalMeresponsKaidah()
         filterSoal(SharedVariable.activePaket)
-
-
-
 
         btnJwbA.setOnClickListener {
             getAnswer = "A"
@@ -75,7 +71,6 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
         }
 
         startQuiz()
-
     }
 
     fun startQuiz(){
@@ -125,10 +120,31 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
     }
 
     fun checkNextOrFinish(){
+        //jika sudah mencapai 25 soal
+        if (countNextSoal < 25){
+            setupSoal()
+        }else{
+         //   mAnimation.end()
+            disableAllButton()
 
+            var skorUser = ""+totalSkor
+            SharedVariable.activeScoreMendengarkan = totalSkor
+            showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+            Log.d(TAG_KAIDAH,"Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+           /* val i = Intent(this,LandingMeresponsKaidahActivity::class.java)
+            startActivity(i)*/
+        }
+    }
+
+    fun disableAllButton(){
+        btnJwbA.isEnabled = false
+        btnJwbB.isEnabled = false
+        btnJwbC.isEnabled = false
+        btnJwbD.isEnabled = false
     }
 
     fun setViewMonolog(){
+        setContentView(R.layout.activity_quiz_merespons_kaidah_monolog)
         btnJwbA = findViewById(R.id.btnJwbA)
         btnJwbB = findViewById(R.id.btnJwbB)
         btnJwbC = findViewById(R.id.btnJwbC)
@@ -138,6 +154,7 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
     }
 
     fun setViewDialog(){
+        setContentView(R.layout.activity_quiz_merespons_kaidah_dialog)
         btnJwbA = findViewById(R.id.btnJwbA)
         btnJwbB = findViewById(R.id.btnJwbB)
         btnJwbC = findViewById(R.id.btnJwbC)
