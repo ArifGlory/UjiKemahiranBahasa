@@ -29,6 +29,7 @@ import android.content.res.AssetManager
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.airbnb.lottie.LottieAnimationView
+import com.tapisdev.myapplication.model.SharedVariable
 import com.tapisdev.ujikemahiranbahasa.MainActivity
 
 
@@ -219,11 +220,11 @@ class QuizMendengarkanActivity : BaseActivity() {
             disableAllButton()
 
             var skorUser = ""+totalSkor
+            SharedVariable.activeScoreMendengarkan = totalSkor
             showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
             Log.d(TAG_MENDENGAR,"Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
-            /*val i = Intent(this,ResultActivity::class.java)
-            i.putExtra("skor",skorUser)
-            startActivity(i)*/
+            val i = Intent(this,LandingMeresponsKaidahActivity::class.java)
+            startActivity(i)
         }
     }
 

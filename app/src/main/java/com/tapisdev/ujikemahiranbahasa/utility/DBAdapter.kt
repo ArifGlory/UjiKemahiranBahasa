@@ -7,6 +7,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.util.Log
 import com.tapisdev.ujikemahiranbahasa.model.SeksiMendengarkan
+import com.tapisdev.ujikemahiranbahasa.model.SeksiMeresponsKaidah
 import java.lang.Exception
 import java.util.ArrayList
 
@@ -21,6 +22,7 @@ class DBAdapter
  */
 private constructor(context: Context) : SQLiteAssetHelper(context, DB_NAME, null, DB_VER) {
     var listSoal : ArrayList<SeksiMendengarkan> = ArrayList<SeksiMendengarkan>()
+    var listSoalKaidah : ArrayList<SeksiMeresponsKaidah> = ArrayList<SeksiMeresponsKaidah>()
     var namaLevel = arrayOf(
         "Paket Soal 1", "Paket Soal 2", "Paket Soal 3", "Paket Soal 4", "Paket Soal 5",
         "Paket Soal 6", "Paket Soal 7", "Paket Soal 8", "Paket Soal 9", "Paket Soal 10"
@@ -87,6 +89,48 @@ private constructor(context: Context) : SQLiteAssetHelper(context, DB_NAME, null
             } while (cursor.moveToNext())
         }
         return listSoal
+    }
+
+    //method untuk mengambil semua data soal seksi merespons kaidah
+    fun getSoalMeresponsKaidah(): ArrayList<SeksiMeresponsKaidah> {
+        //var listSoal : ArrayList<SeksiMendengarkan> = ArrayList<SeksiMendengarkan>()
+        var tabel_soal: String? = "seksi_merespons_kaidah"
+        listSoalKaidah.clear()
+
+        val cursor = db!!.query(
+            tabel_soal, arrayOf(
+                "id_soal",
+                "tipe_soal",
+                "dialog_1",
+                "dialog_2",
+                "monolog",
+                "jawaban_a",
+                "jawaban_b",
+                "jawaban_c",
+                "jawaban_d",
+                "jawaban_benar",
+                "id_paket"
+            ), null, null, null, null, null
+        )
+        if (cursor.moveToFirst()) {
+            do {
+                var quiz  : SeksiMeresponsKaidah = SeksiMeresponsKaidah(
+                    cursor.getInt(cursor.getColumnIndexOrThrow("id_soal")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("tipe_soal")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("dialog_1")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("dialog_2")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("monolog")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("jawaban_a")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("jawaban_b")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("jawaban_c")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("jawaban_d")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("jawaban_benar")),
+                    cursor.getInt(cursor.getColumnIndexOrThrow("id_paket"))
+                )
+                listSoalKaidah.add(quiz)
+            } while (cursor.moveToNext())
+        }
+        return listSoalKaidah
     }
 
     /*
