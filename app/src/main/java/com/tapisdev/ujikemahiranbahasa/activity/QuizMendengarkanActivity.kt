@@ -29,6 +29,7 @@ import android.content.res.AssetManager
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.airbnb.lottie.LottieAnimationView
+import com.tapisdev.myapplication.model.SharedVariable
 import com.tapisdev.ujikemahiranbahasa.MainActivity
 
 
@@ -219,11 +220,11 @@ class QuizMendengarkanActivity : BaseActivity() {
             disableAllButton()
 
             var skorUser = ""+totalSkor
+            SharedVariable.activeScoreMendengarkan = totalSkor
             showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
             Log.d(TAG_MENDENGAR,"Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
-            /*val i = Intent(this,ResultActivity::class.java)
-            i.putExtra("skor",skorUser)
-            startActivity(i)*/
+            val i = Intent(this,LandingMeresponsKaidahActivity::class.java)
+            startActivity(i)
         }
     }
 
@@ -235,10 +236,12 @@ class QuizMendengarkanActivity : BaseActivity() {
             }
         }
 
-        Log.d(TAG_CHECK_AUDIO,"audio nya : "+listSoal.get(currentSoal).dialog)
+        var namaAudio = listSoal.get(currentSoal).dialog.trim()
+        Log.d(TAG_CHECK_AUDIO,"audio triimed  : "+namaAudio.length)
+        Log.d(TAG_CHECK_AUDIO,"audio nya : "+listSoal.get(currentSoal).dialog.length)
 
         var assetMng : AssetManager = resources.assets
-        var afd2 = assetMng.openFd(listSoal.get(currentSoal).dialog)
+        var afd2 = assetMng.openFd(namaAudio)
 
       //  var afd = assets.openFd(listSoal.get(currentSoal).dialog)
         mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)

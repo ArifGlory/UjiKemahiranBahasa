@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Uji Kemahiran Bahasa Indonesia</string>
     <string name="penjelasan_listening">Pada seksi ini, anda diminta untuk mendengarkan dahulu sebuah dialog, kemudian menjawab beberapa pertanyaan berdasarkan dialog tersebut.</string>
+    <string name="penjelasan_kaidah">Pada seksi ini, anda diminta untuk memperhatikan sebuah kalimat/dialog , kemudian memilih jawaban yang memiliki kaidah yang tepat.</string>
+    <string name="penjelasan_membaca">Pada seksi ini, anda diminta untuk membaca sebuah bacaan terlebih dahulu, kemudian memilih jawaban yang  tepat sesuai bacaan tersebut.</string>
 </resources>

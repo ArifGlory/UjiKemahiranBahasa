@@ -17,7 +17,7 @@
         android:layout_marginBottom="15dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/grammar" />
+        app:lottie_rawRes="@raw/reading" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="Seksi 2. Merespons Kaidah "
+            android:text="Seksi 3. Membaca "
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -44,7 +44,7 @@
             android:gravity="center"
             android:layout_marginTop="5dp"
             android:paddingHorizontal="10dp"
-            android:text="@string/penjelasan_kaidah"
+            android:text="@string/penjelasan_membaca"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="13sp"
             android:textStyle="normal" />
@@ -53,14 +53,13 @@
 
 
     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-        android:id="@+id/startTesKaidah"
+        android:id="@+id/startTesMembaca"
         style="@style/loginButton"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
         android:text="Mulai Tes"
