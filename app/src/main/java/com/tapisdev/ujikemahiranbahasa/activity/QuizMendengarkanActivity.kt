@@ -185,10 +185,10 @@ class QuizMendengarkanActivity : BaseActivity() {
         enableAllButton()
         tvInfoSoal.setText("Soal ke - "+(currentSoal + 1)+" \n"+listSoal.get(currentSoal).soal)
 
-        btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
-        btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
-        btnJwbC.setText(listSoal.get(currentSoal).jawaban_c)
-        btnJwbD.setText(listSoal.get(currentSoal).jawaban_d)
+        btnJwbA.setText("A. "+listSoal.get(currentSoal).jawaban_a)
+        btnJwbB.setText("B. "+listSoal.get(currentSoal).jawaban_b)
+        btnJwbC.setText("C. "+listSoal.get(currentSoal).jawaban_c)
+        btnJwbD.setText("D. "+listSoal.get(currentSoal).jawaban_d)
     }
 
     fun nextSoal(){

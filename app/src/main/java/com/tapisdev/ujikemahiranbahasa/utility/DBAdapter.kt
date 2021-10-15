@@ -181,7 +181,7 @@ private constructor(context: Context) : SQLiteAssetHelper(context, DB_NAME, null
     }
 
     companion object {
-        private const val DB_NAME = "db_uji_kemahiran_fix"
+        private const val DB_NAME = "db_uji_kemahiran_2"
         private const val DB_VER = 1
         const val TABLE_MENDENGARKAN = "seksi_mendengarkan"
         const val TABLE_MEMBACA = "seksi_membaca"

@@ -53,6 +53,34 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
         listSoalTemp = mDB!!.getSoalMeresponsKaidah()
         filterSoal(SharedVariable.activePaket)
 
+        startQuiz()
+    }
+
+    fun startQuiz(){
+        setupSoal()
+    }
+
+    fun setupSoal(){
+        var quiz = listSoal.get(currentSoal)
+        if (quiz.tipe_soal.equals("dialog")){
+            setViewDialog()
+
+            tvDialog1.setText(listSoal.get(currentSoal).dialog_1)
+            tvDialog2.setText(listSoal.get(currentSoal).dialog_2)
+            btnJwbA.setText("A. "+listSoal.get(currentSoal).jawaban_a)
+            btnJwbB.setText("B. "+listSoal.get(currentSoal).jawaban_b)
+            btnJwbC.setText("C. "+listSoal.get(currentSoal).jawaban_c)
+            btnJwbD.setText("D. "+listSoal.get(currentSoal).jawaban_d)
+        }else{
+            setViewMonolog()
+
+            tvMonolog.setText(listSoal.get(currentSoal).monolog)
+            btnJwbA.setText("A. "+listSoal.get(currentSoal).jawaban_a)
+            btnJwbB.setText("B. "+listSoal.get(currentSoal).jawaban_b)
+            btnJwbC.setText("C. "+listSoal.get(currentSoal).jawaban_c)
+            btnJwbD.setText("D. "+listSoal.get(currentSoal).jawaban_d)
+        }
+
         btnJwbA.setOnClickListener {
             getAnswer = "A"
             nextSoal()
@@ -68,34 +96,6 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
         btnJwbD.setOnClickListener {
             getAnswer = "D"
             nextSoal()
-        }
-
-        startQuiz()
-    }
-
-    fun startQuiz(){
-        setupSoal()
-    }
-
-    fun setupSoal(){
-        var quiz = listSoal.get(currentSoal)
-        if (quiz.tipe_soal.equals("dialog")){
-            setViewDialog()
-
-            tvDialog1.setText(listSoal.get(currentSoal).dialog_1)
-            tvDialog2.setText(listSoal.get(currentSoal).dialog_2)
-            btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
-            btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
-            btnJwbC.setText(listSoal.get(currentSoal).jawaban_c)
-            btnJwbD.setText(listSoal.get(currentSoal).jawaban_d)
-        }else{
-            setViewMonolog()
-
-            tvMonolog.setText(listSoal.get(currentSoal).monolog)
-            btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
-            btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
-            btnJwbC.setText(listSoal.get(currentSoal).jawaban_c)
-            btnJwbD.setText(listSoal.get(currentSoal).jawaban_d)
         }
     }
 
