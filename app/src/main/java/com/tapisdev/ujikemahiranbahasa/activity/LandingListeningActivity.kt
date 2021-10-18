@@ -36,7 +36,7 @@ class LandingListeningActivity : BaseActivity() {
             Log.d("randomPaket"," : "+randomPaket)
             SharedVariable.activePaket = randomPaket
 
-            val i = Intent(this,QuizMembacaActivity::class.java)
+            val i = Intent(this,QuizMendengarkanActivity::class.java)
            // i.putExtra("sm",sM as Parcelable)
             i.putExtra("randomPaket",randomPaket)
             startActivity(i)

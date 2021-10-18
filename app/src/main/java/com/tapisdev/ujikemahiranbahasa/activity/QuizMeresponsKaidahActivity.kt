@@ -128,11 +128,11 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
             disableAllButton()
 
             var skorUser = ""+totalSkor
-            SharedVariable.activeScoreMendengarkan = totalSkor
-            showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
-            Log.d(TAG_KAIDAH,"Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
-           /* val i = Intent(this,LandingMeresponsKaidahActivity::class.java)
-            startActivity(i)*/
+            SharedVariable.activeSkorKaidah = SharedVariable.nilaiJawabBenar * totalSkor
+            //showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+            Log.d(TAG_KAIDAH,"Tes Mendengarkan Selesai !, skor : "+SharedVariable.activeSkorKaidah)
+            val i = Intent(this,LandingMembacaActivity::class.java)
+            startActivity(i)
         }
     }
 
@@ -187,7 +187,7 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
 
         listener = DialogInterface.OnClickListener { dialog, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
-               // mAnimation.end()
+                SharedVariable.resetScore()
                 startActivity(Intent(this, MainActivity::class.java))
             }
             if (which == DialogInterface.BUTTON_NEGATIVE) {
