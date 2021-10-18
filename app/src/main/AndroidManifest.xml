@@ -14,17 +14,21 @@
         android:theme="@style/Theme.UjiKemahiranBahasa"
         tools:replace="android:icon">
         <activity
-            android:name=".activity.LandingMembacaActivity"
+            android:name=".activity.QuizMembacaActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".activity.LandingMembacaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.QuizMeresponsKaidahActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.LandingMeresponsKaidahActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.QuizMendengarkanActivity"
             android:exported="true"
