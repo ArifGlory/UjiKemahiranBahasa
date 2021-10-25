@@ -3,4 +3,9 @@
     <string name="penjelasan_listening">Pada seksi ini, anda diminta untuk mendengarkan dahulu sebuah dialog, kemudian menjawab beberapa pertanyaan berdasarkan dialog tersebut.</string>
     <string name="penjelasan_kaidah">Pada seksi ini, anda diminta untuk memperhatikan sebuah kalimat/dialog , kemudian memilih jawaban yang memiliki kaidah yang tepat.</string>
     <string name="penjelasan_membaca">Pada seksi ini, anda diminta untuk membaca sebuah bacaan terlebih dahulu, kemudian memilih jawaban yang  tepat sesuai bacaan tersebut.</string>
+    <string name="text_tentang"> Uji Kemahiran Berbahasa Indonesia (UKBI) adalah tes kemampuan untuk menguji seberapa mahir seseorang dalam berbahasa Indonesia dengan baik dan benar.
+    UKBI memiliki beberapa seksi dalam pengujian nya yaitu Mendengarkan, Merespons Kaidah, dan Membaca.\n\n
+       \n Nilai tertinggi yang dapat didapatkan adalah 800 dan predikat tertinggi adalah Istimewa.
+     UKBI dikembangkan oleh Badan Pengembangan dan Pembinaan Bahasa pada tahun 1997. Kemudian pada tahun 2003 UKBI mendapatkan SK Mendiknas sebagai bentuk pembakuan UKBI
+    </string>
 </resources>
