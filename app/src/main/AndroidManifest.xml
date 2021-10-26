@@ -16,9 +16,11 @@
         <activity
             android:name=".activity.TentangActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
             <intent-filter>
@@ -30,34 +32,42 @@
         <activity
             android:name=".activity.ResultActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.QuizMembacaActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.LandingMembacaActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.QuizMeresponsKaidahActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.LandingMeresponsKaidahActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.QuizMendengarkanActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.LandingListeningActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
     </application>
 
