@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
+import com.tapisdev.ujikemahiranbahasa.model.SeksiMembaca
 import com.tapisdev.ujikemahiranbahasa.model.SeksiMendengarkan
 import com.tapisdev.ujikemahiranbahasa.model.SeksiMeresponsKaidah
 import java.lang.Exception
@@ -23,6 +24,7 @@ class DBAdapter
 private constructor(context: Context) : SQLiteAssetHelper(context, DB_NAME, null, DB_VER) {
     var listSoal : ArrayList<SeksiMendengarkan> = ArrayList<SeksiMendengarkan>()
     var listSoalKaidah : ArrayList<SeksiMeresponsKaidah> = ArrayList<SeksiMeresponsKaidah>()
+    var listSoalMembaca : ArrayList<SeksiMembaca> = ArrayList<SeksiMembaca>()
     var namaLevel = arrayOf(
         "Paket Soal 1", "Paket Soal 2", "Paket Soal 3", "Paket Soal 4", "Paket Soal 5",
         "Paket Soal 6", "Paket Soal 7", "Paket Soal 8", "Paket Soal 9", "Paket Soal 10"
@@ -133,6 +135,52 @@ private constructor(context: Context) : SQLiteAssetHelper(context, DB_NAME, null
         return listSoalKaidah
     }
 
+    //method untuk mengambil semua data soal seksi membaca
+    fun getSoalMembaca(): ArrayList<SeksiMembaca> {
+        //var listSoal : ArrayList<SeksiMendengarkan> = ArrayList<SeksiMendengarkan>()
+        var tabel_soal: String? = "seksi_membaca"
+        listSoalMembaca.clear()
+
+        var crsr = db!!.rawQuery("SELECT seksi_membaca.*,table_bacaan.bacaan,table_bacaan.gambar FROM seksi_membaca INNER JOIN table_bacaan ON seksi_membaca.id_bacaan=table_bacaan.id_bacaan", null);
+
+        /*val cursor = db!!.query(
+            tabel_soal, arrayOf(
+                "id_soal",
+                "tipe_soal",
+                "dialog_1",
+                "dialog_2",
+                "monolog",
+                "jawaban_a",
+                "jawaban_b",
+                "jawaban_c",
+                "jawaban_d",
+                "jawaban_benar",
+                "id_paket"
+            ), null, null, null, null, null
+        )*/
+
+        if (crsr.moveToFirst()) {
+            do {
+                var quiz  : SeksiMembaca = SeksiMembaca(
+                    crsr.getInt(crsr.getColumnIndexOrThrow("id_soal")),
+                    crsr.getInt(crsr.getColumnIndexOrThrow("id_bacaan")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("soal")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("bacaan")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("gambar")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("jawaban_a")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("jawaban_b")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("jawaban_c")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("jawaban_d")),
+                    crsr.getString(crsr.getColumnIndexOrThrow("jawaban_benar")),
+                    crsr.getInt(crsr.getColumnIndexOrThrow("id_paket"))
+                )
+                listSoalMembaca.add(quiz)
+            } while (crsr.moveToNext())
+        }
+        return listSoalMembaca
+    }
+
+
     /*
     public List<History> getAllHistory(){
         List<History> listHistory = new ArrayList<>();
@@ -181,7 +229,7 @@ private constructor(context: Context) : SQLiteAssetHelper(context, DB_NAME, null
     }
 
     companion object {
-        private const val DB_NAME = "db_uji_kemahiran_fix"
+        private const val DB_NAME = "db_uji_kemahiran_3"
         private const val DB_VER = 1
         const val TABLE_MENDENGARKAN = "seksi_mendengarkan"
         const val TABLE_MEMBACA = "seksi_membaca"

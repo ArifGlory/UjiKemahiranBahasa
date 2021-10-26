@@ -53,6 +53,34 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
         listSoalTemp = mDB!!.getSoalMeresponsKaidah()
         filterSoal(SharedVariable.activePaket)
 
+        startQuiz()
+    }
+
+    fun startQuiz(){
+        setupSoal()
+    }
+
+    fun setupSoal(){
+        var quiz = listSoal.get(currentSoal)
+        if (quiz.tipe_soal.equals("dialog")){
+            setViewDialog()
+
+            tvDialog1.setText(listSoal.get(currentSoal).dialog_1)
+            tvDialog2.setText(listSoal.get(currentSoal).dialog_2)
+            btnJwbA.setText("A. "+listSoal.get(currentSoal).jawaban_a)
+            btnJwbB.setText("B. "+listSoal.get(currentSoal).jawaban_b)
+            btnJwbC.setText("C. "+listSoal.get(currentSoal).jawaban_c)
+            btnJwbD.setText("D. "+listSoal.get(currentSoal).jawaban_d)
+        }else{
+            setViewMonolog()
+
+            tvMonolog.setText(listSoal.get(currentSoal).monolog)
+            btnJwbA.setText("A. "+listSoal.get(currentSoal).jawaban_a)
+            btnJwbB.setText("B. "+listSoal.get(currentSoal).jawaban_b)
+            btnJwbC.setText("C. "+listSoal.get(currentSoal).jawaban_c)
+            btnJwbD.setText("D. "+listSoal.get(currentSoal).jawaban_d)
+        }
+
         btnJwbA.setOnClickListener {
             getAnswer = "A"
             nextSoal()
@@ -68,34 +96,6 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
         btnJwbD.setOnClickListener {
             getAnswer = "D"
             nextSoal()
-        }
-
-        startQuiz()
-    }
-
-    fun startQuiz(){
-        setupSoal()
-    }
-
-    fun setupSoal(){
-        var quiz = listSoal.get(currentSoal)
-        if (quiz.tipe_soal.equals("dialog")){
-            setViewDialog()
-
-            tvDialog1.setText(listSoal.get(currentSoal).dialog_1)
-            tvDialog2.setText(listSoal.get(currentSoal).dialog_2)
-            btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
-            btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
-            btnJwbC.setText(listSoal.get(currentSoal).jawaban_c)
-            btnJwbD.setText(listSoal.get(currentSoal).jawaban_d)
-        }else{
-            setViewMonolog()
-
-            tvMonolog.setText(listSoal.get(currentSoal).monolog)
-            btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
-            btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
-            btnJwbC.setText(listSoal.get(currentSoal).jawaban_c)
-            btnJwbD.setText(listSoal.get(currentSoal).jawaban_d)
         }
     }
 
@@ -128,11 +128,11 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
             disableAllButton()
 
             var skorUser = ""+totalSkor
-            SharedVariable.activeScoreMendengarkan = totalSkor
-            showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
-            Log.d(TAG_KAIDAH,"Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
-           /* val i = Intent(this,LandingMeresponsKaidahActivity::class.java)
-            startActivity(i)*/
+            SharedVariable.activeSkorKaidah = SharedVariable.nilaiJawabBenar * totalSkor
+            //showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+            Log.d(TAG_KAIDAH,"Tes Mendengarkan Selesai !, skor : "+SharedVariable.activeSkorKaidah)
+            val i = Intent(this,LandingMembacaActivity::class.java)
+            startActivity(i)
         }
     }
 
@@ -187,7 +187,7 @@ class QuizMeresponsKaidahActivity : BaseActivity() {
 
         listener = DialogInterface.OnClickListener { dialog, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
-               // mAnimation.end()
+                SharedVariable.resetScore()
                 startActivity(Intent(this, MainActivity::class.java))
             }
             if (which == DialogInterface.BUTTON_NEGATIVE) {

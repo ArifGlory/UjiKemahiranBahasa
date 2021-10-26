@@ -14,17 +14,39 @@
         android:theme="@style/Theme.UjiKemahiranBahasa"
         tools:replace="android:icon">
         <activity
-            android:name=".activity.LandingMembacaActivity"
+            android:name=".activity.TentangActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ResultActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".activity.QuizMembacaActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".activity.LandingMembacaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.QuizMeresponsKaidahActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.LandingMeresponsKaidahActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".activity.QuizMendengarkanActivity"
             android:exported="true"
@@ -36,13 +58,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
     </application>
 
 </manifest>

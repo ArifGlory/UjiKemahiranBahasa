@@ -185,10 +185,10 @@ class QuizMendengarkanActivity : BaseActivity() {
         enableAllButton()
         tvInfoSoal.setText("Soal ke - "+(currentSoal + 1)+" \n"+listSoal.get(currentSoal).soal)
 
-        btnJwbA.setText(listSoal.get(currentSoal).jawaban_a)
-        btnJwbB.setText(listSoal.get(currentSoal).jawaban_b)
-        btnJwbC.setText(listSoal.get(currentSoal).jawaban_c)
-        btnJwbD.setText(listSoal.get(currentSoal).jawaban_d)
+        btnJwbA.setText("A. "+listSoal.get(currentSoal).jawaban_a)
+        btnJwbB.setText("B. "+listSoal.get(currentSoal).jawaban_b)
+        btnJwbC.setText("C. "+listSoal.get(currentSoal).jawaban_c)
+        btnJwbD.setText("D. "+listSoal.get(currentSoal).jawaban_d)
     }
 
     fun nextSoal(){
@@ -220,9 +220,9 @@ class QuizMendengarkanActivity : BaseActivity() {
             disableAllButton()
 
             var skorUser = ""+totalSkor
-            SharedVariable.activeScoreMendengarkan = totalSkor
-            showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
-            Log.d(TAG_MENDENGAR,"Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+            SharedVariable.activeSkorMendengarkan = SharedVariable.nilaiJawabBenar * totalSkor
+            //showSuccessMessage("Tes Mendengarkan Selesai !, jawaban benar : "+skorUser)
+            Log.d(TAG_MENDENGAR,"Tes Mendengarkan Selesai !, hasil skor : "+SharedVariable.activeSkorMendengarkan)
             val i = Intent(this,LandingMeresponsKaidahActivity::class.java)
             startActivity(i)
         }
@@ -305,7 +305,7 @@ class QuizMendengarkanActivity : BaseActivity() {
                     mPlayer.stop()
                     mPlayer.reset()
                 }
-
+                SharedVariable.resetScore()
                 startActivity(Intent(this, MainActivity::class.java))
             }
             if (which == DialogInterface.BUTTON_NEGATIVE) {
