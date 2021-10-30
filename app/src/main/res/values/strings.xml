@@ -1,11 +1,37 @@
 <resources>
-    <string name="app_name">Uji Kemahiran Bahasa Indonesia</string>
+    <string name="app_name">Uji Kemahiran Berbahasa Indonesia</string>
     <string name="penjelasan_listening">Pada seksi ini, anda diminta untuk mendengarkan dahulu sebuah dialog, kemudian menjawab beberapa pertanyaan berdasarkan dialog tersebut.</string>
     <string name="penjelasan_kaidah">Pada seksi ini, anda diminta untuk memperhatikan sebuah kalimat/dialog , kemudian memilih jawaban yang memiliki kaidah yang tepat.</string>
     <string name="penjelasan_membaca">Pada seksi ini, anda diminta untuk membaca sebuah bacaan terlebih dahulu, kemudian memilih jawaban yang  tepat sesuai bacaan tersebut.</string>
-    <string name="text_tentang"> Uji Kemahiran Berbahasa Indonesia (UKBI) adalah tes kemampuan untuk menguji seberapa mahir seseorang dalam berbahasa Indonesia dengan baik dan benar.
-    UKBI memiliki beberapa seksi dalam pengujian nya yaitu Mendengarkan, Merespons Kaidah, dan Membaca.\n\n
-       \n Nilai tertinggi yang dapat didapatkan adalah 800 dan predikat tertinggi adalah Istimewa.
-     UKBI dikembangkan oleh Badan Pengembangan dan Pembinaan Bahasa pada tahun 1997. Kemudian pada tahun 2003 UKBI mendapatkan SK Mendiknas sebagai bentuk pembakuan UKBI
+    <string name="text_tentang_1">
+        Uji Kemahiran Berbahasa Indonesia (UKBI) adalah uji kemahiran untuk mengukur seberapa mahir seseorang dalam berbahasa indonesia baik dalam lisan maupun tulisan, baik penutur bahasa Indonesia maupun penutur bahasa asing. UKBI meliputi tiga seksi, yaitu Seksi I (Mendengarkan), Seksi II (Merespons Kaidah), Seksi III (Membaca) (ukbi.kemendikbud.go.id). \n\n
+
+Uji Kemahiran Berbahasa Indonesia (UKBI) terbentuk karna mengalami berbagai peristiwa kebahasaan yang di pelopori oleh Badan Pengembangan dan Pembinaan Bahasa, Kementerian Pendidikan Nasional. Pada Kongres Bahasa Indonesia V pada tahun 1988 munculah gagasan yang menyatakan tentang perlunya sarana tes bahasa Indonesia yang mempunyai standar. Karena hal itu, Pusat Bahasa menyusun dan membakukan sebuah instrumen evaluasi bahasa Indonesia. Pada awal tahun 1990-an, instrumen evaluasi itu diwujudkan, kemudian dinamai dengan Uji Kemahiran Berbahasa Indonesia \n\n
+
+Materi UKBI meliputi keahlian berbahasa Indonesia yaitu mendengar, membaca, dan berbicara, selain itu juga UKBI juga mengujikan kaidah dalam bahasa Indonesia, materi tersebut dijadikan menjadi seksi pengujian UKBI.\n
+    </string>
+    <string name="text_tentang_2">
+        Hasil UKBI berupa peringkat dan predikat yang ditentukan dari skor tertentu. Pemeringkatan hasil UKBI dibedakan dalam tujuh peringkat berikut.\n\n
+I. Istimewa (725--800)
+Predikat ini menandakan bahwa peserta memiliki kemahiran yang sempurna dalam menggunakan bahasa Indonesia, baik lisan maupun tulisan. Serta dapat berkomunikasi untuk keperluan keilmiahan yang rumit peserta tidak akan mengalami kendala.
+\n\n
+        II. Sangat Unggul (641--724)
+Predikat ini menandakan bahwa peserta uji memiliki kemahiran yang sangat tinggi dalam berkomunikasi dengan menggunakan bahasa Indonesia, baik lisan maupun tulisan. Untuk berkomunikasi di bidang keilmiahan yang rumit peserta mengalami sedikit kendala, tetapi tidak untuk keperluan yang lain.
+\n\n
+        III. Unggul (578--640)
+Predikat ini menandakan bahwa peserta uji memiliki kemahiran yang tinggi dalam berkomunikasi dengan menggunakan bahasa Indonesia, baik lisan maupun tulisan. Untuk berkomunikasi di bidang keilmiahan dan keprofesian yang rumit peserta mengalami kendala.
+\n\n
+        IV. Madya(482--577)
+Predikat ini menandakan bahwa peserta uji memiliki kemahiran yang memadai dalam berkomunikasi dengan menggunakan bahasa Indonesia, baik lisan maupun tulis. Untuk berkomunikasi dibidang keprofesian yang rumit peserta mengalami kendala, dan kendala tersebut semakin besar ketika peseta bekomunikasi di bidang keilmiahan.
+\n\n
+        V. Semenjana(405--481)
+Predikat ini menandakan bahwa peserta uji memiliki kemahiran yang cukup memadai dalam berkomunikasi dengan menggunakan bahasa Indonesia, baik lisan maupun tulis. Dalam berkomunikasi untuk keperluan keilmiahan, yang bersangkutan sangat terkendala.
+\n\n
+        VI. Marginal (326--404)
+Predikat ini menandakan bahwa peserta uji memiliki kemahiran yang tidak memadai untuk berkomunikasi dengan menggunakan bahasa Indonesia, baik lisan maupun tulis. Dalam berkomunikasi untuk keperluan dibidang kemasyarakatan yang tidak rumit, termasuk keperluan kesintasan, yang bersangkutan tidak mengalami kendala. Akan tetapi, untuk keperluan kemasyarakatan yang rumit, peserta masih mengalami kendala. Dalam hal tersebur pesera belum siap berkomunikasi untuk keperluan keprofesian, apalagi untuk keperluan keilmiahan.
+\n\n
+        VII. Terbatas (251--325)
+Predikat ini menandalan bahwa peserta uji memiliki kemahiran yang sangat tidak memadai dalam berkomunikasi dengan menggunakan bahasa Indonesia, baik lisan maupun tulis. Dengan kemahiran ini, yang bersangkutan hanya siap berkomunikasi untuk keperluan kesintasan. Pada saat yang sama, predikat ini juga menggambarkan potensi yang bersangkutan dalam berkomunikasi masih sangat besar kemungkinannya untuk ditingkapkan.
+
     </string>
 </resources>

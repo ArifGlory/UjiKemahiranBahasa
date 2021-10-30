@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:background="#00ADC1"
     android:layout_height="match_parent"
     android:padding="20dp"
@@ -10,15 +18,27 @@
 
 
     <TextView
-        android:id="@+id/tvSubTitle"
+        android:id="@+id/tvTentang1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="left"
-        android:text="@string/text_tentang"
+        android:text="@string/text_tentang_1"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvTentang2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="left"
+        android:text="@string/text_tentang_2"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
 
 
-</RelativeLayout>
+</LinearLayout>
+</ScrollView>
